@@ -1,3 +1,5 @@
+import { Pagination } from "../../components/Pagination";
+
 export const Listing = () => {
-  return <h1>Listing page</h1>;
+  return <Pagination />;
 };

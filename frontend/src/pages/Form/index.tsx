@@ -9,17 +9,11 @@ import {
 } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
-import { colors, movies } from "../../config/constants";
+import { colors } from "../../config/constants";
 import { Link } from "react-router-dom";
 
 export const Form = () => {
   const { movieId } = useParams();
-
-  const getMovie = () => {
-    return movies.filter((movie) => movie.id === parseInt(movieId as any));
-  };
-
-  const movie = getMovie();
 
   const ratingChanged = (newRating: any) => {
     console.log(newRating);
@@ -28,7 +22,7 @@ export const Form = () => {
   return (
     <Box w="100%" backgroundColor="#000" h="100%" p="40px">
       <Flex direction="column" align="center">
-        <Image
+        {/* <Image
           src={movie[0].image}
           maxH="350px"
           borderRadius="20px"
@@ -36,7 +30,7 @@ export const Form = () => {
         />
         <Text color="#fff" fontWeight="bold" fontSize="24px" textAlign="center">
           {movie[0].title}
-        </Text>
+        </Text> */}
         <form>
           <FormControl mt="20px">
             <FormLabel

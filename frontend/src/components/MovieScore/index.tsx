@@ -18,7 +18,7 @@ export const MovieScore = ({ movie }: any) => {
       </Flex>
       <Box>
         <Text fontSize="18px" color={colors.subTitles} fontWeight="bold">
-          {`${movie?.ratings} avaliações`}
+          {`${movie?.count} avaliações`}
         </Text>
       </Box>
     </Flex>

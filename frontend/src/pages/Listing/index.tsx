@@ -1,22 +1,34 @@
 import { Box, Grid } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Movie, MovieCard } from "../../components/MovieCard";
+import { MovieCard } from "../../components/MovieCard";
 import { Pagination } from "../../components/Pagination";
-import { movies } from "../../config/constants";
-import { MoviePage } from "../../types/movie";
+import { Movie, MoviePage } from "../../types/movie";
 import { BASE_URL } from "../../utils/requests";
 
 export const Listing = () => {
   const [pageNumber, setPageNumber] = useState(0);
 
+  const [page, setPage] = useState<MoviePage>({
+    content: [],
+    last: true,
+    totalPages: 0,
+    totalElements: 0,
+    size: 12,
+    number: 0,
+    first: true,
+    numberOfElements: 0,
+    empty: true,
+  });
+
   useEffect(() => {
-    axios.get(`${BASE_URL}/movies?size=12&page=2`).then((response) => {
-      const data = response.data as MoviePage;
-      console.log(data);
-      setPageNumber(data.number);
-    });
-  }, []);
+    axios
+      .get(`${BASE_URL}/movies?size=12&page=${pageNumber}&sort=title`)
+      .then((response) => {
+        const data = response.data as MoviePage;
+        setPage(data);
+      });
+  }, [pageNumber]);
 
   return (
     <>
@@ -29,13 +41,12 @@ export const Listing = () => {
           rowGap={10}
           gap={10}
         >
-          {movies.map((movie: Movie) => (
+          {page?.content?.map((movie) => (
             <Box key={movie.id}>
               <MovieCard movie={movie} />
             </Box>
           ))}
         </Grid>
-        <p>{pageNumber}</p>
         <Pagination />
       </Box>
     </>

@@ -1,15 +1,22 @@
 import { Box, Grid } from "@chakra-ui/react";
 import axios from "axios";
+import { useEffect, useState } from "react";
 import { Movie, MovieCard } from "../../components/MovieCard";
 import { Pagination } from "../../components/Pagination";
 import { movies } from "../../config/constants";
+import { MoviePage } from "../../types/movie";
 import { BASE_URL } from "../../utils/requests";
 
 export const Listing = () => {
-  //FORMA ERRADA
-  axios.get(`${BASE_URL}/movies?size=12&page=0`).then((response) => {
-    console.log(response.data);
-  });
+  const [pageNumber, setPageNumber] = useState(0);
+
+  useEffect(() => {
+    axios.get(`${BASE_URL}/movies?size=12&page=2`).then((response) => {
+      const data = response.data as MoviePage;
+      console.log(data);
+      setPageNumber(data.number);
+    });
+  }, []);
 
   return (
     <>
@@ -28,6 +35,7 @@ export const Listing = () => {
             </Box>
           ))}
         </Grid>
+        <p>{pageNumber}</p>
         <Pagination />
       </Box>
     </>

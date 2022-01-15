@@ -7,13 +7,14 @@ import {
   Input,
   Text,
 } from "@chakra-ui/react";
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 import { useEffect, useState } from "react";
 import ReactStars from "react-rating-stars-component";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { colors } from "../../config/constants";
 import { Movie } from "../../types/movie";
 import { BASE_URL } from "../../utils/requests";
+import { validateEmail } from "../../utils/validate";
 
 type Props = {
   movieId: string;
@@ -21,6 +22,9 @@ type Props = {
 
 export const FormCard = ({ movieId }: Props) => {
   const [movie, setMovie] = useState<Movie>();
+  const [score, setScore] = useState(0);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get(`${BASE_URL}/movies/${movieId}`).then((response) => {
@@ -28,9 +32,35 @@ export const FormCard = ({ movieId }: Props) => {
     });
   }, [movieId]);
 
-  const ratingChanged = (newRating: any) => {
-    console.log(newRating);
+  const ratingChanged = (score: number) => {
+    setScore(score);
   };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const email = (event.target as any).email.value;
+
+    if (!validateEmail(email)) {
+      return;
+    }
+
+    const config: AxiosRequestConfig = {
+      baseURL: BASE_URL,
+      method: "PUT",
+      url: "/scores",
+      data: {
+        email: email,
+        movieId: movieId,
+        score: score,
+      },
+    };
+
+    axios(config).then((response) => {
+      navigate("/");
+    });
+  };
+
   return (
     <Box w="100%" backgroundColor="#000" h="100%" p="40px">
       <Flex direction="column" align="center">
@@ -38,7 +68,7 @@ export const FormCard = ({ movieId }: Props) => {
         <Text color="#fff" fontWeight="bold" fontSize="24px" textAlign="center">
           {movie?.title}
         </Text>
-        <form>
+        <form onSubmit={handleSubmit}>
           <FormControl mt="20px">
             <FormLabel
               htmlFor="email"
@@ -54,7 +84,7 @@ export const FormCard = ({ movieId }: Props) => {
             <Flex direction="column" align="center">
               <ReactStars
                 count={5}
-                onChange={ratingChanged}
+                onChange={(score) => score && ratingChanged(score)}
                 activeColor={colors.mainColor}
                 size={50}
                 isHalf={true}
@@ -63,6 +93,7 @@ export const FormCard = ({ movieId }: Props) => {
             <Flex direction="column" align="center" mt="20px">
               <Box
                 as="button"
+                type="submit"
                 backgroundColor={colors.button}
                 p="5px 10px 5px 10px"
                 borderRadius="20px"

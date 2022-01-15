@@ -56,16 +56,22 @@ export const FormCard = ({ movieId }: Props) => {
       },
     };
 
-    axios(config).then((response) => {
+    axios(config).then(() => {
       navigate("/");
     });
   };
 
   return (
-    <Box w="100%" backgroundColor="#000" h="100%" p="40px">
+    <Box w="100%" h="100%" p="40px">
       <Flex direction="column" align="center">
         <Image src={movie?.image} maxH="350px" borderRadius="20px" w="320px" />
-        <Text color="#fff" fontWeight="bold" fontSize="24px" textAlign="center">
+        <Text
+          color="#fff"
+          mt="10px"
+          fontWeight="bold"
+          fontSize="24px"
+          textAlign="center"
+        >
           {movie?.title}
         </Text>
         <form onSubmit={handleSubmit}>
@@ -98,6 +104,9 @@ export const FormCard = ({ movieId }: Props) => {
                 p="5px 10px 5px 10px"
                 borderRadius="20px"
                 w="150px"
+                _hover={{
+                  opacity: "0.5",
+                }}
               >
                 <Text color="#000" fontWeight="bold">
                   ENVIAR
@@ -111,6 +120,7 @@ export const FormCard = ({ movieId }: Props) => {
                   borderRadius="20px"
                   w="150px"
                   mt="15px"
+                  _hover={{ opacity: "0.5" }}
                 >
                   <Text color={colors.button} fontWeight="bold">
                     CANCELAR

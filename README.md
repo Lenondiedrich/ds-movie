@@ -7,12 +7,12 @@
   <a href="https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V14.md#14.15.0">
       <img alt="Nodejs Version" src="https://img.shields.io/badge/node.js-v14.15.0-informational?logo=Node.JS">
   </a>
-  <img alt="GitHub Repo Size" src="https://img.shields.io/github/repo-size/Lenondiedrich/dsmovie">
-  <a href="https://github.com/Lenondiedrich/dsdeliver-sds2/issues">
-      <img alt="GitHub Issues" src="https://img.shields.io/github/issues/Lenondiedrich/dsmovie">
+  <img alt="GitHub Repo Size" src="https://img.shields.io/github/repo-size/Lenondiedrich/ds-movie">
+  <a href="https://github.com/Lenondiedrich/ds-movie/issues">
+      <img alt="GitHub Issues" src="https://img.shields.io/github/issues/Lenondiedrich/ds-movie">
    </a>
   <a href="./LICENSE.txt">
-      <img alt="GitHub License" src="https://img.shields.io/github/license/Lenondiedrich/dsmovie">
+      <img alt="GitHub License" src="https://img.shields.io/github/license/Lenondiedrich/ds-movie">
    </a>
 </h3>
 <h3>💻 Sobre: </h3>
@@ -27,15 +27,12 @@
   <li>Insomnia</li>
   <li>Heroku</li>
   <li>Netlify</li>
-  <li>
-  NodeJs
-  <img width="28px" src="https://upload.wikimedia.org/wikipedia/commons/7/70/Font_Awesome_5_brands_node-js.svg" />
-  </li>
+  <li>NodeJs</li>
   
 </ul
 
 <hr />
-<h4>Acesse a aplicação rodando no Netlify aqui: -> <a href="https://lenondiedrichsds2.netlify.app">DS Delivery</a></h4>
+<h4>Acesse a aplicação rodando no Netlify aqui: -> <a href="https://lenon-dsmovie.netlify.app/">DSMovie</a></h4>
 <h3>📟 Layout da aplicação:</h3>
 <img src="./initial.png" />
 <img src="./dsdelivery.gif" />

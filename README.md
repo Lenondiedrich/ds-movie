@@ -35,7 +35,7 @@
 <h4>Acesse a aplicação rodando no Netlify aqui: -> <a href="https://lenon-dsmovie.netlify.app/">DSMovie</a></h4>
 <h3>📟 Layout da aplicação:</h3>
 <img src="./initialPage.png" />
-<img src="./runningAplication.gif" />
+<img src="./running.gif" />
 
 <h3>⚙️ Instalação: </h3>
 

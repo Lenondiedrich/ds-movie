@@ -40,20 +40,20 @@
 <h3>⚙️ Instalação: </h3>
 
     # Clone o repositório
-    $ git clone <https://github.com/Lenondiedrich/dsdeliver-sds2>
+    $ git clone <https://github.com/Lenondiedrich/ds-movie>
 
 <h4>Backend</h4>
-<p>Utilizando a IDE (Spring Tool Suite), altere o arquivo  `application.properties`, altere o perfil de `prod` para `test`, então execute o arquivo `DsdeliverApplication.java`</p>
+<p>Utilizando a IDE (Spring Tool Suite), altere o arquivo  `application.properties`, altere o perfil de `prod` para `test`, então rode a aplicação pela IDE do Spring.</p>
 <h4>Frontend</h4>
 
-    # Navegue até o diretório front-web
-    $ cd front-web
+    # Navegue até o diretório frontend
+    $ cd frontend
 
     # Instale as dependências da aplicação
-    $ npm install
+    $ npm install ou yarn
 
     # Inicie a aplicação React
-    $ npm start
+    $ npm start ou yarn start
 
 <p>A aplicação irá rodar no endereço `http://localhost:3000/`</p>
 

@@ -27,6 +27,7 @@ export const MovieCard = ({ movie }: Props) => {
           backgroundColor="transparent"
           color={colors?.mainColor}
           borderRadius="30px"
+          _hover={{ backgroundColor: `${colors.mainColor}`, color: "black" }}
           p="5px 10px 5px 10px"
         >
           <Text fontWeight="bold">AVALIAR</Text>

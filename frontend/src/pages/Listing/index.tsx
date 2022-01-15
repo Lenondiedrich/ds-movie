@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { MovieCard } from "../../components/MovieCard";
 import { Pagination } from "../../components/Pagination";
-import { Movie, MoviePage } from "../../types/movie";
+import { MoviePage } from "../../types/movie";
 import { BASE_URL } from "../../utils/requests";
 
 export const Listing = () => {
@@ -30,6 +30,10 @@ export const Listing = () => {
       });
   }, [pageNumber]);
 
+  const handlePageChange = (newPageNumber: number) => {
+    setPageNumber(newPageNumber);
+  };
+
   return (
     <>
       <Box backgroundColor="#000" p="30px" w="100%">
@@ -47,7 +51,7 @@ export const Listing = () => {
             </Box>
           ))}
         </Grid>
-        <Pagination />
+        <Pagination page={page} onChange={handlePageChange} />
       </Box>
     </>
   );

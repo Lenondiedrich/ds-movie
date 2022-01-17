@@ -6,7 +6,7 @@ export const Form = () => {
   const { movieId } = useParams();
 
   return (
-    <Box h="100%" backgroundColor="#000">
+    <Box h="calc(100vh - 150px)" backgroundColor="#000">
       <FormCard movieId={`${movieId}`} />
     </Box>
   );

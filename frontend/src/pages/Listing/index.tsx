@@ -36,7 +36,7 @@ export const Listing = () => {
 
   return (
     <>
-      <Box backgroundColor="#000" p="30px" w="100%">
+      <Box backgroundColor="#000" p="30px" w="100%" h="calc(100vh - 150px)">
         <Grid
           w="100%"
           align="center"

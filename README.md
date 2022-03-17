@@ -27,7 +27,6 @@
   <li>Insomnia</li>
   <li>Heroku</li>
   <li>Netlify</li>
-  <li>NodeJs</li>
   
 </ul
 
